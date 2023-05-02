@@ -16,10 +16,7 @@ public class Grafo implements IGrafo  {
 			for (int j = 0; j < matrizDeAdyacencia.length; j++) {
 				String comparador = matrizDeAdyacencia[i][j] ? "R" : "N";
 				
-				int iSumado = i + 1;
-				int jSumado = j + 1;
-				
-				sb.append(iSumado + comparador + jSumado + "| ");
+				sb.append(i + comparador + j + "| ");
 			}
 			sb.append('\n');
 		}

@@ -12,13 +12,13 @@ public class SistemaDeConexion {
 	private Grafo conexiones;
 	private GeneradorDeCostos generadorDeCostos;
 	private int maximaCantidadDeUbicaciones = 10;
-	private HashMap<Arista, Double> costoPorArista;
+	private HashMap<String, Double> costoPorArista;
 	
 	public SistemaDeConexion (GeneradorDeCostos generadorDeCostos) {
 		this.coordenadas = new ArrayList<Coordenada>();
 		this.conexiones = new Grafo(maximaCantidadDeUbicaciones);
 		this.generadorDeCostos = generadorDeCostos;
-		this.costoPorArista = new HashMap<Arista, Double>();
+		this.costoPorArista = new HashMap<String, Double>();
 	}
 	
 	public void agregarUbicacion(String identificador, String provincia, double latitud, double longitud) throws Exception {
@@ -33,8 +33,8 @@ public class SistemaDeConexion {
 			double costo = generadorDeCostos.generarCostoPorDistancia(distancia, false);
 			
 			Arista nuevaArista = new Arista(nuevaCoordenada.getIdentificador(), coordenada.getIdentificador());
-			conexiones.agregarArista(nuevaArista.i, nuevaArista.j);
-			costoPorArista.put(nuevaArista, costo);
+			conexiones.agregarArista(nuevaArista.getI(), nuevaArista.getJ());
+			costoPorArista.put(Integer.toString(nuevaArista.getI()) + Integer.toString(nuevaArista.getJ()), costo);
 		}
 		
 		coordenadas.add(nuevaCoordenada);

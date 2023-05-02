@@ -8,4 +8,12 @@ public class Ubicacion {
 		this.nombre = nombre;
 		this.provincia = provincia;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
 }
